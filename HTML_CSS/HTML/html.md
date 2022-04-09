@@ -1,56 +1,53 @@
+# HTML
 
+## 학습 내용
 
+- Contents
 
+  - Text Contents
+  - Image, Video, Audio Contents
 
+- Structure
 
+## HTML Introduction
 
+- Hyper Text Markup Language
+- HTML을 사용해서 웹페이지에 콘텐츠와 구조를 표시
 
-
-
-
-
-
-
-
-
-
-## HTML Basic
+## HTMl Basic
 
 ```
 <!DOCTYPE html> : 문서(웹페이지) 타입(종류) - 버전(HTML5)
 <html> : 웹 페이지 전체 영역
-
   <head> : 웹 페이지의 추가정보, 타이틀, 파일 임포트
     <title></title>
   </head>
-
   <body> : 웹 페이지의 본문 영역 - 웹 페이지 모든 콘텐츠 표시
   </body>
-
 </html>
 ```
 
 ## HTML Syntax
 
 - Tag를 사용해서 Element를 표시/표현
+
 ```
 <tag>contents</tag> : 시작태그, 종료태그로 구성
-
 <tag> : 시작 태그만 존재하는 경우 - 빈요소(Empty Element)
 ```
 
 - 포함관계(Nested Element)
   - Tag 영역안에 다른 Tag가 포함되는 것
   - 포함하는 요소 : 조상요소(ancestor), 부모요소(parent)
-  - 포함되는 요소 : 자손요소(descendant) , 자식요소(child)
+  - 포함되는 요소 : 자손요소(descendant), 자식요소(child)
+
 ```
 <html>
   <body>
     <h1>큰제목</h1>
-    <p>단락</p1>
+    <p>단락</p>
   </body>
 </html>
-
 html 기준
 - 자식요소 : body
 - 자손요소 : h1, p
@@ -64,10 +61,10 @@ body 기준
 - Attribute(속성)
   - tag에 추가 정보
   - attr이름 = "값"
+
 ```
 <tag attr="값"></tag>
 ```
-
 
 ## Text Contents Markup
 
@@ -81,7 +78,7 @@ body 기준
 - p(aragraph) 태그
 
 ```
-WYSIWYG(What You See Is What You Get : 네가 보는 것이 얻는 것이다)
+WYSIWYG(What You See Is What You Get : 네가 보는것이 얻는것이다)
 - HTML은 WYSIWYG 지원이 되지 않음
 ```
 
@@ -92,19 +89,18 @@ WYSIWYG(What You See Is What You Get : 네가 보는 것이 얻는 것이다)
 
 ```
 & : ampersand
-
 엔터티 코드 : 대체코드
 - 특수문자를 직접 사용하지 못할 때 대체해서 사용하는 코드
 ```
 
 - 수평선(Horizontal Rule) : hr
-  - 단락을 구분하는 구분선
+  - 단락를 구분하는 구분선
   - 빈 요소
 
 ### HTML Link
 
 - a(nchor) : 하이퍼링크 연결 태그
-- href(Hypertext Reference) : 목적지 정보 제공 속성(atrribute)
+- href(hypertext reference) : 목적지 정보 제공 속성(atrribute)
 
 ```
 <a href="url">텍스트</a>
