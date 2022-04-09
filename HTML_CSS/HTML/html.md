@@ -6,6 +6,7 @@
 
   - Text Contents
   - Image, Video, Audio Contents
+    - Embed(ed) Contents
 
 - Structure
 
@@ -83,6 +84,7 @@ WYSIWYG(What You See Is What You Get : 네가 보는것이 얻는것이다)
 ```
 
 - 강제 줄바꿈 : br(eak) 태그
+
   - 시작태그만 존재하는 빈요소(Empty Element)
 
 - 강제 공백 : &nbsp;(Non-Break Space)(엔터티 코드)
@@ -101,9 +103,173 @@ WYSIWYG(What You See Is What You Get : 네가 보는것이 얻는것이다)
 
 - a(nchor) : 하이퍼링크 연결 태그
 - href(hypertext reference) : 목적지 정보 제공 속성(atrribute)
+- bookmark
+  - 연결된 페이지로 이동하지 않고, 같은 페이지내에서 위아래 이동
 
 ```
+- page link
 <a href="url">텍스트</a>
+- bookmark
+- link
+<a href="#target">목적지</a>
+- target
+<h2 id="target">단락 제목</h2>
 ```
 
-- URL(Uniform Resource Locator) : 파일위치식별자
+- URL(Uniform Resource Locator) : 파일(자원)위치식별자 - 상세주소
+
+- 인터넷 주소체계
+  - IP(Internet Protocol) address : 인터넷에서 사용하는 주소
+  - Domain name : IP 주소를 영어단어로 표현
+    - 서버종류 : www
+    - 회사이름 : naver, daum
+    - 기관성격 : com, net (3자리) / co, go, ac (4자리)
+    - 국가(4자리) : kr, uk, ca, fr ...
+
+```
+- IP : 0~255까지 숫자 4개로 구성
+Ex) 192.168.0.1
+- 인터넷 접속 프로세스 : 주소표시줄에 Domain Name 입력 => IP주소로 변환 => 접속
+- URL 체계
+IP 또는 Domain 주소/상세경로/파일정보
+Ex) www.w3schools.com/html/default.asp
+```
+
+### HTML table
+
+** https://www.tablesgenerator.com/html_tables
+
+```
+<table> : 테이블 작성
+  <tr> : table row - 행
+    <th></th> : table header - 열제목
+  </tr>
+  <tr>
+    <td></td> : table data - 데이터
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+```
+
+### HTML List
+
+- ul(Unordered List) : 순서없는 목록
+  - 기호로 표시
+- ol(Ordered List) : 순서있는 목록
+  - 숫자로 표시(알파벳, 한글)
+- li(List Item) : 목록 아이템
+- 중첩목록(Nested List)
+  - 목록안에 작은 목록이 포함되는 경우
+
+```
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JS</li>
+</ul>
+<ol>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JS</li>
+</ol>
+```
+
+- Description List : 설명목록
+  - dl(Description List)
+  - dt(Description title)
+  - dd(Description Data)
+
+```
+<dl>
+  <dt>목록 주제</dt>
+  <dd>목록 설명</dd>
+</dl>
+```
+
+### HTML Image
+
+- img
+- src(source) : 이미지 파일 경로/파일명 표시
+- alt(ernative) : 대체 텍스트
+
+```
+<img src="www.naver.com/html/photo.jpg" alt="이미지 설명">
+```
+
+- 이미지 형식
+  - 비트맵(포토샵), 백터(일러스트레이터) 이미지
+  - 비트맵 이미지 형식
+    - jpg : 사진
+    - png : 이미지
+    - gif : 용량이 작음 - 로고, 애니메이션
+  - 백터 이미지
+    - svg
+
+
+### HTML Video
+
+- video
+  - 이름만 사용하는 attribute는 on/off 기능 형태
+  - controls : 재생 컨트롤을 화면에 표시
+  - autoplay : 자동 재생
+  - muted : 소리 제거
+
+
+```
+<video>
+  <source src="www.daum.net/video/movie.mp4" type="video/mp4">
+</video>
+```
+
+### Youtube Video
+
+- option, parameter(매개변수)
+
+https://developers.google.com/youtube/player_parameters?hl=ko#autoplay
+
+```
+<iframe src="youtube-url?parameter1=0&parameter2=1&parameter3=0"></iframe>
+```
+
+
+## 파일 경로 표시 방식
+
+- 절대 경로(주소) 방식
+  - 항상 똑같은 경로(주소) 표시 가능
+  - 주소 표시 방식이 복잡함
+```
+href="www.naver.com/html/home.html"
+src="www.instagram.com/html/photo.jpg"
+```
+
+- 상대 경로 방식
+  - 출발 위치 기준에 따라서 상대적으로 경로(주소) 표시 형태가 변경
+  - 같은 자원의 위치에 대해서 표시 방식이 너무 많음
+  - 자원의 위치가 이동하면, 주소를 모두 수정해야 함
+  - ../ : 한 단계 상위 폴더로 이동
+```
+/ - html  - home.html
+          - sub.html
+  - images - photo.jpg
+
+위치 기준 : sub.html     
+
+href="home.html"
+src="../images/photo.jpg"
+```
+
+- root 상대 경로 방식
+  - root : 최상위 경로(/)
+  - root 경로에서부터 찾아갈 수 있도록 상대 경로 방식을 변형
+```
+/ - html  - home.html
+          - sub.html
+  - images - photo.jpg
+
+위치 기준 : sub.html
+
+href="/html/home.html"
+src="/images/photo.jpg"
+```
